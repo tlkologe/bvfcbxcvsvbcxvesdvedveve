@@ -1,4 +1,17 @@
-"channelId" => $https://discord.com/api/webhooks/854984978977914891/tE48pcZGWN7i10RD8bJMvB-XFE-xocHExZD3PV9ieJwlfllbNcFAx2xQ5fPogOWm1q-M
+ function sendEmbed($embed, $token) {
+		$requestJson = json_encode(utf8ize($embed));
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, "https://api.zerotwo.bot/guild/chat/embed");
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array("X-ZeroTwo-Auth: ".$token));
+		curl_setopt($ch, CURLOPT_POST, true);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $requestJson);
+		curl_exec($ch);
+		curl_close($ch);
+	}
+
+    $embed = array(
+		"channelId" => $channelId, // yes, dumb design, but the channel id is right here
 		"title" => array(
 			"text" => "EMBEDS FROM REST",
 			"url" => "https://zerotwo.bot/"
@@ -17,9 +30,9 @@
 				"inline" => true
 			)
 		),
-		"thumbnail" => "<iframe src="https://giphy.com/embed/CO7xyiUlvkG6Q" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/time-CO7xyiUlvkG6Q">via GIPHY</a></p>",
+		"thumbnail" => "https://media.giphy.com/media/CO7xyiUlvkG6Q/giphy.gif",
 		"footer" => array(
-			"text" => "nut on commmand",
-			"iconUrl" => "<iframe src="https://giphy.com/embed/CO7xyiUlvkG6Q" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/time-CO7xyiUlvkG6Q">via GIPHY</a></p>"
+			"text" => "NUT",
+			"iconUrl" => "https://media.giphy.com/media/CO7xyiUlvkG6Q/giphy.gif"
 		)
 	);

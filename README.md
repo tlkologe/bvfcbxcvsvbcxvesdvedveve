@@ -1,4 +1,4 @@
-"channelId" => $general
+"channelId" => $https://discord.com/api/webhooks/854984978977914891/tE48pcZGWN7i10RD8bJMvB-XFE-xocHExZD3PV9ieJwlfllbNcFAx2xQ5fPogOWm1q-M
 		"title" => array(
 			"text" => "EMBEDS FROM REST",
 			"url" => "https://zerotwo.bot/"
